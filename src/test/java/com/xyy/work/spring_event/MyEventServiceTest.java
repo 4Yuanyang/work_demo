@@ -1,6 +1,7 @@
-package com.xyy.work;
+package com.xyy.work.spring_event;
 
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.TestPropertySource;
@@ -11,11 +12,12 @@ import org.springframework.test.context.TestPropertySource;
 @TestPropertySource(properties = {
         "spring.autoconfigure.exclude=org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration"
 })
-class WorkDemoApplicationTests {
-
+public class MyEventServiceTest {
+    @Autowired
+    private MyEventService myEventService;
     @Test
-    void contextLoads() {
-
+    public void test() {
+        myEventService.publish();
     }
 
 }
